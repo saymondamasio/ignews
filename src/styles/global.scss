@@ -10,6 +10,7 @@
   --gray-50: #e1e1e6;
   --gray-300: #a8a8b3;
   --gray-800: #29292e;
+  --gray-850: #1f2729;
   --gray-900: #121214;
 
   --cyan-500: #61dafb;
@@ -17,19 +18,15 @@
   --yellow-500: #eba417;
 }
 
-html {
-  font-size: 62.5%; // 10px
-}
-
 @media (max-width: 1080px) {
   html {
-    font-size: 1.5rem; // 15px
+    font-size: 93.75%; // 15px
   }
 }
 
 @media (max-width: 720px) {
   html {
-    font-size: 1.4rem; // 14px
+    font-size: 87.5%; // 14px
   }
 }
 
