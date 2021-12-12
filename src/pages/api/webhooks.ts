@@ -23,7 +23,13 @@ export const config = {
     }
 }
 
-const relevantEvents = new Set(['checkout.session.completed'])
+//eventos que serão ouvidos
+const relevantEvents = new Set([
+    'checkout.session.completed',
+    'customer.subscription.created',
+    'customer.subscription.updated',
+    'customer.subscription.deleted'
+])
 
 export default async function handle(request: NextApiRequest, response: NextApiResponse) {
     if(request.method === 'POST'){
@@ -33,26 +39,40 @@ export default async function handle(request: NextApiRequest, response: NextApiR
         const secret = request.headers['stripe-signature']
 
         let event: Stripe.Event
-
+        
         try{
             //pega o evento do webhook
             event = stripe.webhooks.constructEvent(buf, secret!, process.env.STRIPE_WEBHOOK_SECRET!)
         } catch(err) {
             return response.status(400).send(`Webhook Error: ${(err as Error).message}`)
         }
-
+        
         const { type } = event
-
+        
         if(relevantEvents.has(type)){
             try {
                 switch (type) {
+                    case 'customer.subscription.updated':
+                    case 'customer.subscription.deleted':
+                        const subscription = event.data.object as Stripe.Subscription
+
+                        await saveSubscription(
+                            subscription.id,
+                            subscription.customer.toString(),
+                            false
+                        )
+                    break
                     case 'checkout.session.completed':
 
                         //tipa para o evento especifico de checkout completo
                         const checkoutSession = event.data.object as Stripe.Checkout.Session
 
                         //salva a subscription no banco
-                        await saveSubscription(checkoutSession.subscription?.toString()!, checkoutSession.customer?.toString()!)
+                        await saveSubscription(
+                            checkoutSession.subscription?.toString()!,
+                            checkoutSession.customer?.toString()!,
+                            true    
+                        )
 
                         break
                     default:
