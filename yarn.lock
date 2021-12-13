@@ -239,6 +239,42 @@
   resolved "https://registry.yarnpkg.com/@panva/hkdf/-/hkdf-1.0.1.tgz#ed0da773bd5f794d0603f5a5b5cee6d2354e5660"
   integrity sha512-mMyQ9vjpuFqePkfe5bZVIf/H3Dmk6wA8Kjxff9RcO4kqzJo+Ek9pGKwZHpeMr7Eku0QhLXMCd7fNCSnEnRMubg==
 
+"@prismicio/client@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@prismicio/client/-/client-5.1.0.tgz#f236d7fca09535d61e599872e7c38afda62b8b3c"
+  integrity sha512-LCb+arVVxJOoPM+8qfLCC/Dqse7mh+Q1k3oo5W5Uzu7vVO+vtc7CUYHxgCDkvekakYHc9407kwWu65ErZw+CPQ==
+  dependencies:
+    cross-fetch "^3.0.6"
+
+"@prismicio/helpers@^2.0.0-beta.6":
+  version "2.0.0-beta.7"
+  resolved "https://registry.yarnpkg.com/@prismicio/helpers/-/helpers-2.0.0-beta.7.tgz#2be896ca56559ddab92ece1cf7366940e498319d"
+  integrity sha512-IyHjBxm4KLpytK7ROXD2AMeEuA7lh8pjR6dRgG1YyVHgjD/yqLBkx0HbRJrz31ifb41Fot/uxMahfzr/+NW7Eg==
+  dependencies:
+    "@prismicio/richtext" "^2.0.0-beta.3"
+    "@prismicio/types" "^0.1.19"
+    escape-html "^1.0.3"
+
+"@prismicio/react@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@prismicio/react/-/react-2.0.0.tgz#f833a111752df07c157f40b0416df626e6bb7075"
+  integrity sha512-e/C+I1OwUkeK84yOc+8aT3pQ/vSW6pKTHB20WRysbx4Ez757EFu0Nn/GNLyQ1qCq2ffEFElGTzhxNTgQhAuy0g==
+  dependencies:
+    "@prismicio/helpers" "^2.0.0-beta.6"
+    "@prismicio/richtext" "^2.0.0-beta.3"
+
+"@prismicio/richtext@^2.0.0-beta.3":
+  version "2.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/@prismicio/richtext/-/richtext-2.0.0-beta.3.tgz#ea885972205eeb7dcfb15fa2bc8b40be2470e131"
+  integrity sha512-ubaaMFsdry7Jwm5H63jBr7jYXP6b/pMNbwRaEH+wUOFmD9lq22r+C6Gait3FNPG//xyqgV3oaI6W1COTiUDnIQ==
+  dependencies:
+    "@prismicio/types" "^0.1.19"
+
+"@prismicio/types@^0.1.19":
+  version "0.1.19"
+  resolved "https://registry.yarnpkg.com/@prismicio/types/-/types-0.1.19.tgz#4836667129684a42cb5f543bca89885c56b052c1"
+  integrity sha512-nMJ71C86LghZmKLZm40wIeGk5bkZvLsIK9YWy4EUE+1pO/rmVQYvOJcl83zpL8UcvbZXhR3+ZgDG2MO/+b5/sg==
+
 "@rushstack/eslint-patch@^1.0.8":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.1.0.tgz#7f698254aadf921e48dda8c0a6b304026b8a9323"
@@ -1088,6 +1124,11 @@ escalade@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/escalade/-/escalade-3.1.1.tgz#d8cfdc7000965c5a0174b4a82eaa5c0552742e40"
   integrity sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==
+
+escape-html@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
+  integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
 
 escape-string-regexp@^1.0.5:
   version "1.0.5"
