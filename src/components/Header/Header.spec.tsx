@@ -9,7 +9,7 @@ jest.mock('next/router', () => ({
 
 jest.mock('next-auth/react', () => ({
   useSession: () => ({
-    data: {}
+    data: null
   })
 }))
 
