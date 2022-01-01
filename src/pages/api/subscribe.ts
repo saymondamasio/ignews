@@ -1,27 +1,29 @@
-import { query } from "faunadb";
-import { NextApiRequest, NextApiResponse } from "next";
-import { getSession } from "next-auth/react";
-import { fauna } from "../../services/fauna";
-import { stripe } from "../../services/stripe";
+import { query } from 'faunadb'
+import { NextApiRequest, NextApiResponse } from 'next'
+import { getSession } from 'next-auth/react'
+import { fauna } from '../../services/fauna'
+import { stripe } from '../../services/stripe'
 
 type User = {
   ref: {
     id: string
-  },
+  }
   data: {
     stripe_customer_id: string
   }
 }
 
-export default async function handler(request: NextApiRequest, response: NextApiResponse) {
-  if(request.method === 'POST'){
-
+export default async function handler(
+  request: NextApiRequest,
+  response: NextApiResponse
+) {
+  if (request.method === 'POST') {
     //pegando as informações do usuario logado
-    const session = await getSession({ req:request })
+    const session = await getSession({ req: request })
 
-    if(!session?.user?.email){
+    if (!session?.user?.email) {
       return response.status(401).json({
-        message: 'You not authorized'
+        message: 'You not authorized',
       })
     }
 
@@ -35,11 +37,10 @@ export default async function handler(request: NextApiRequest, response: NextApi
       )
     )
 
-    
     //verifica se o usuario ja se cadastrou no stripe
     let customerId = user.data.stripe_customer_id
-    
-    if(!customerId) {
+
+    if (!customerId) {
       //criando o cliente no stripe
       const stripeCustomer = await stripe.customers.create({
         email: session.user.email,
@@ -47,30 +48,27 @@ export default async function handler(request: NextApiRequest, response: NextApi
 
       //atualiza o usuario no banco com o id do cliente stripe
       await fauna.query(
-        query.Update(
-          query.Ref(query.Collection('users'), user.ref.id),
-          {
-            data: {
-              stripe_customer_id: stripeCustomer.id
-            }
-          }
-        )
+        query.Update(query.Ref(query.Collection('users'), user.ref.id), {
+          data: {
+            stripe_customer_id: stripeCustomer.id,
+          },
+        })
       )
 
       customerId = stripeCustomer.id
     }
-    
 
-    
     // criando o checkout no stripe
     const stripeCheckoutSession = await stripe.checkout.sessions.create({
       customer: customerId,
       payment_method_types: ['card'],
       billing_address_collection: 'required',
-      line_items: [{
-        price: 'price_1K5GHQBWgX1VGRQu0xyQHe1c',
-        quantity: 1,
-      }],
+      line_items: [
+        {
+          price: 'price_1K5GHQBWgX1VGRQu0xyQHe1c',
+          quantity: 1,
+        },
+      ],
       mode: 'subscription',
       allow_promotion_codes: true,
       success_url: process.env.STRIPE_SUCCESS_URL || '',
@@ -78,7 +76,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
     })
 
     return response.status(200).json({
-      sessionId: stripeCheckoutSession.id
+      sessionId: stripeCheckoutSession.id,
     })
   } else {
     response.setHeader('Allow', 'POST')

@@ -11,13 +11,11 @@ describe('SignInButton component', () => {
 
     useSessionMocked.mockReturnValueOnce({
       data: null,
-      status: 'unauthenticated'
+      status: 'unauthenticated',
     })
 
-    render(
-      <SignInButton />
-    )
-  
+    render(<SignInButton />)
+
     expect(screen.getByText('Sign in with Github')).toBeInTheDocument()
   })
 
@@ -28,17 +26,15 @@ describe('SignInButton component', () => {
       data: {
         user: {
           name: 'John Doe',
-          email: 'johndow@example.com'
+          email: 'johndow@example.com',
         },
-        expires: 'fake-expires'
+        expires: 'fake-expires',
       },
-      status: 'authenticated'
+      status: 'authenticated',
     })
 
-    render(
-      <SignInButton />
-    )
-  
+    render(<SignInButton />)
+
     expect(screen.getByText('John Doe')).toBeInTheDocument()
   })
 })

@@ -1,7 +1,7 @@
-import { query } from "faunadb"
-import NextAuth from "next-auth"
-import GithubProvider from "next-auth/providers/github"
-import { fauna } from "../../../services/fauna"
+import { query } from 'faunadb'
+import NextAuth from 'next-auth'
+import GithubProvider from 'next-auth/providers/github'
+import { fauna } from '../../../services/fauna'
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -10,17 +10,16 @@ export default NextAuth({
       clientId: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
       authorization: {
-        params:{
-          scope: 'read:user'
-        }
-      }
+        params: {
+          scope: 'read:user',
+        },
+      },
     }),
     // ...add more providers here
   ],
   callbacks: {
     async session({ session }) {
-
-      if(!session.user?.email){
+      if (!session.user?.email) {
         return session
       }
 
@@ -30,7 +29,7 @@ export default NextAuth({
           //retorna a subscription pela ref do usuario
           query.Get(
             query.Intersection([
-                query.Match(
+              query.Match(
                 query.Index('subscription_by_user_ref'),
                 //retorna somente a ref
                 query.Select(
@@ -44,21 +43,18 @@ export default NextAuth({
                   )
                 )
               ),
-              query.Match(
-                query.Index('subscription_by_status'),
-                'active'
-              )
+              query.Match(query.Index('subscription_by_status'), 'active'),
             ])
           )
         )
         return {
           ...session,
-          activeSubscription: userActiveSubscription
+          activeSubscription: userActiveSubscription,
         }
       } catch (error) {
         return {
           ...session,
-          activeSubscription: null
+          activeSubscription: null,
         }
       }
     },
@@ -84,21 +80,17 @@ export default NextAuth({
             query.Create(query.Collection('users'), { data: { email } }),
             // retorna o usuário
             query.Get(
-              query.Match(
-                  query.Index('user_by_email'),
-                  query.Casefold(email!)
-                )
+              query.Match(query.Index('user_by_email'), query.Casefold(email!))
             )
           )
         )
-        
+
         return true
       } catch (error) {
-        console.log('Error in FaunaDB: ' + error); 
+        console.log('Error in FaunaDB: ' + error)
 
         return false
       }
-      
-    }
-  }
+    },
+  },
 })
