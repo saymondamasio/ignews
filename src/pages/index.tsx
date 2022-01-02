@@ -8,7 +8,7 @@ import styles from './home.module.scss'
 interface Props {
   product: {
     priceId: string
-    amount: number
+    amount: string
   }
 }
 
