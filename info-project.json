@@ -1,0 +1,11 @@
+{
+  "name": "Ignews",
+  "videos": [
+    "https://raw.githubusercontent.com/saymondamasio/ignews/master/.github/demonstration.gif"
+  ],
+  "images": [
+    "https://raw.githubusercontent.com/saymondamasio/ignews/master/.github/cover.png"
+  ],
+  "description": "Site de noticias do mundo tech de forma simples e intuitiva",
+  "short_description": "Um blog de notícias para o web"
+}
