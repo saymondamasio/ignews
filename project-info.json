@@ -4,9 +4,58 @@
     "https://raw.githubusercontent.com/saymondamasio/ignews/master/.github/demonstration.gif"
   ],
   "images": [
-    "https://raw.githubusercontent.com/saymondamasio/ignews/master/.github/cover.png"
+    "https://raw.githubusercontent.com/saymondamasio/ignews/master/.github/screenshot-1.jpg",
+    "https://raw.githubusercontent.com/saymondamasio/ignews/master/.github/screenshot-2.jpg",
+    "https://raw.githubusercontent.com/saymondamasio/ignews/master/.github/screenshot-3.jpg",
+    "https://raw.githubusercontent.com/saymondamasio/ignews/master/.github/screenshot-4.jpg"
   ],
-  "description": "Site de noticias do mundo tech de forma simples e intuitiva",
+  "description": "Site de noticias do mundo tech de forma simples e intuitiva. Neste projeto foi usado Next Auth para a autenticação do usuário com o GitHub, também a utilização do Fauna DB, um banco não relacional, além do Prismic CMS para a gestão do conteúdo.",
   "short_description": "Um blog de notícias para o web",
-  "link_preview": "https://ignews-damasio.vercel.app"
+  "link_preview": "https://ignews-damasio.vercel.app",
+  "techs": [
+    {
+      "name": "Next.js",
+      "url": "https://nextjs.org/"
+    },
+    {
+      "name": "Typescript",
+      "url": "https://www.typescriptlang.org/"
+    },
+    {
+      "name": "Prismic CMS",
+      "url": "https://www.prismic.io/"
+    },
+    {
+      "name": "Stripe",
+      "url": "https://stripe.com/"
+    },
+    {
+      "name": "SASS",
+      "url": "https://sass-lang.com/"
+    },
+    {
+      "name": "Axios",
+      "url": "https://axios-http.com/"
+    },
+    {
+      "name": "React Icons",
+      "url": "https://react-icons.netlify.com/"
+    },
+    {
+      "name": "FaunaDB",
+      "url": "https://www.fauna.com"
+    },
+    {
+      "name": "Next Auth",
+      "url": "https://next-auth.js.org/"
+    },
+    {
+      "name": "Eslint",
+      "url": "https://eslint.org/"
+    },
+    {
+      "name": "Prettier",
+      "url": "https://prettier.io/"
+    }
+  ]
 }
