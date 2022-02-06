@@ -1,13 +1,13 @@
 {
   "name": "Ignews",
   "videos": [
-    "https://raw.githubusercontent.com/saymondamasio/ignews/master/.github/demonstration.mp4"
+    "https://raw.githubusercontent.com/saymondamasio/ignews/main/.github/demonstration.mp4"
   ],
   "images": [
-    "https://raw.githubusercontent.com/saymondamasio/ignews/master/.github/screenshot-1.jpg",
-    "https://raw.githubusercontent.com/saymondamasio/ignews/master/.github/screenshot-2.jpg",
-    "https://raw.githubusercontent.com/saymondamasio/ignews/master/.github/screenshot-3.jpg",
-    "https://raw.githubusercontent.com/saymondamasio/ignews/master/.github/screenshot-4.jpg"
+    "https://raw.githubusercontent.com/saymondamasio/ignews/main/.github/screenshot-1.jpg",
+    "https://raw.githubusercontent.com/saymondamasio/ignews/main/.github/screenshot-2.jpg",
+    "https://raw.githubusercontent.com/saymondamasio/ignews/main/.github/screenshot-3.jpg",
+    "https://raw.githubusercontent.com/saymondamasio/ignews/main/.github/screenshot-4.jpg"
   ],
   "description": "Site de noticias do mundo tech de forma simples e intuitiva. Neste projeto foi usado Next Auth para a autenticação do usuário com o GitHub, também a utilização do Fauna DB, um banco não relacional, além do Prismic CMS para a gestão do conteúdo.",
   "short_description": "Um blog de notícias para o web",
