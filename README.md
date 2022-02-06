@@ -8,6 +8,8 @@
 
 <p align="center">Um blog de notícias para o web</p>
 
+https://user-images.githubusercontent.com/50559834/152695994-f975c0e4-5da2-41c5-b2a4-93d7c8ed340b.mp4
+
 <p align="center">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/saymondamasio/ignews">
 
